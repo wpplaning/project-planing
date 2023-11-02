@@ -88,6 +88,8 @@ const Edit = ({
       officer,
       description: showDescriptionInput ? description : null,
       peopleOfficer: showPeopleOfficerInput ? peopleOfficer : null,
+      description1: showDescriptionInput1 ? description1 : null,
+      peopleOfficer1: showPeopleOfficerInput1 ? peopleOfficer1 : null,
       informer,
       school,
       request,
