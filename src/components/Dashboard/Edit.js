@@ -28,12 +28,18 @@ const Edit = ({
 
   // State to track whether to display the description input
   const [showDescriptionInput, setShowDescriptionInput] = useState(false);
+  const [showDescriptionInput1, setShowDescriptionInput1] = useState(false);
   const [description, setDescription] = useState(selectedProject.description);
+  const [description1, setDescription1] = useState(selectedProject.description1);
 
   // State to track whether to display the People Officer input
   const [showPeopleOfficerInput, setShowPeopleOfficerInput] = useState(false);
+  const [showPeopleOfficerInput1, setShowPeopleOfficerInput1] = useState(false);
   const [peopleOfficer, setPeopleOfficer] = useState(
     selectedProject.peopleOfficer
+  );
+  const [peopleOfficer1, setPeopleOfficer1] = useState(
+    selectedProject.peopleOfficer1
   );
 
   const [informer, setInformer] = useState(selectedProject.informer);
@@ -296,6 +302,25 @@ const Edit = ({
     }
   };
 
+    // Function to toggle the description input based on the selected officer
+    const toggleDescriptionInput1 = (selectedValue) => {
+      if (selectedValue === "වෙනත්") {
+        setShowDescriptionInput1(true);
+      } else {
+        setShowDescriptionInput1(false);
+      }
+    };
+  
+    // Function to toggle the description input based on the selected officer
+    const togglePeopleOfficerInput1 = (selectedValue) => {
+      if (selectedValue === "මහජන නියෝජීතයන්") {
+        setShowPeopleOfficerInput1(true);
+      } else {
+        setShowPeopleOfficerInput1(false);
+      }
+    };
+  
+
   // Function to toggle the accept input based on the selected officer
   const toggleAcceptInput = (selectedValue) => {
     if (selectedValue === "ව්‍යාපෘතියක් අනුමත කලා") {
@@ -414,8 +439,8 @@ const Edit = ({
           value={informer}
           onChange={(e) => {
             setInformer(e.target.value);
-            toggleDescriptionInput(e.target.value);
-            togglePeopleOfficerInput(e.target.value);
+            toggleDescriptionInput1(e.target.value);
+            togglePeopleOfficerInput1(e.target.value);
           }}
         >
           <option value="">
@@ -424,28 +449,28 @@ const Edit = ({
           {renderOfficerOptions()}
         </select>
 
-        {showDescriptionInput && (
+        {showDescriptionInput1 && (
           <div>
-            <label htmlFor="description">සටහන් කරන්න</label>
+            <label htmlFor="description1">සටහන් කරන්න</label>
             <input
-              id="description"
+              id="description1"
               type="text"
-              name="description"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
+              name="description1"
+              value={description1}
+              onChange={(e) => setDescription1(e.target.value)}
             />
           </div>
         )}
 
-        {showPeopleOfficerInput && (
+        {showPeopleOfficerInput1 && (
           <div>
-            <label htmlFor="peopleOfficer">මහජන නියෝජීතයාගේ නම</label>
+            <label htmlFor="peopleOfficer1">මහජන නියෝජීතයාගේ නම</label>
             <input
-              id="peopleOfficer"
+              id="peopleOfficer1"
               type="text"
-              name="peopleOfficer"
-              value={peopleOfficer}
-              onChange={(e) => setPeopleOfficer(e.target.value)}
+              name="peopleOfficer1"
+              value={peopleOfficer1}
+              onChange={(e) => setPeopleOfficer1(e.target.value)}
             />
           </div>
         )}
